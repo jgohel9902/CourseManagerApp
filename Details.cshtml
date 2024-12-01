@@ -1,0 +1,39 @@
+﻿@model CourseManagerApp.Models.Course
+
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<h2>Course Details</h2>
+
+<p>
+    <strong>Name:</strong> @Model.Name <br />
+    <strong>Instructor:</strong> @Model.Instructor <br />
+    <strong>Start Date:</strong> @Model.StartDate.ToShortDateString() <br />
+    <strong>Room:</strong> @Model.RoomNumber
+</p>
+
+<h3>Students</h3>
+<p>
+    <a href="/Students/Create?courseId=@Model.CourseId">Add a new student</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model.Students)
+        {
+            <tr>
+                <td>@student.Name</td>
+                <td>@student.Email</td>
+                <td>@student.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

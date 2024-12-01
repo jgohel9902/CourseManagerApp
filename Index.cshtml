@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Welcome Page</h1>
+<p>Manage my <a href="/Courses">courses</a> or <a href="/Courses/Create">add a new course</a>.</p>
+
+<footer>
+    @if (Context.Request.Cookies.ContainsKey("FirstVisit"))
+    {
+        <p>Welcome back! You first used this app on: @Context.Request.Cookies["FirstVisit"]</p>
+    }
+    else
+    {
+        <p>Welcome to your first visit! Enjoy using the Course Manager App!</p>
+    }
+</footer>
+
